@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)http://visjs.org/examples/network/other/animationShowcase.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Network | Animation</title>
+
+  <script type="text/javascript" src="src/vis.js"></script>
+
+  <style type="text/css">
+    #mynetwork {
+      width: 600px;
+      height: 400px;
+      border: 1px solid lightgray;
+    }
+  </style>
+</head>
+<body>
+
+<p>
+  Create a simple network with some nodes and edges.
+</p>
+
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+var changeChosenLabelMod =
+function(values, id, selected, hovering) {
+     values.width = 5;
+  }
+  // create an array with nodes
+  var nodes = new vis.DataSet([
+    {id: 0, label: 'PG 0'},
+    {id: 1, label: 'PG 1'},
+    {id: 2, label: 'PG 2'},
+    {id: 3, label: 'PG 3'},
+    {id: 4, label: 'PG 4'}
+  ]);
+  // create an array with edges
+  var edges = new vis.DataSet([
+    {from: 0, to: 2, label: 'middle', font: {align: 'middle'}, font: {background: 'red'}},
+    {from: 0, to: 1, label: 'middle', font: {align: 'middle'}, font: {background: 'red'}},
+    {from: 1, to: 3, label: 'middle', font: {align: 'middle'}, font: {background: 'red'}},
+    {from: 1, to: 4, label: 'middle', font: {align: 'middle'}, font: {background: 'red'}},
+  ]);
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var options = {physics: false};
+  var network = new vis.Network(container, data, options);
+</script>
+
+
+</body>
+</html>
